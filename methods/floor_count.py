@@ -33,9 +33,9 @@ def learn_remove_floor(robot: Robot)->None:
         
         if building.floor == 1:
             print(f"{self.name} не может уменьшить количество этажей у одноэтажки!")
-            return
-            
-        building.floor -= 1
-        print(f"{self.name} только что уменьшил количество этажей на 1!")
+        
+        else:
+            building.floor -= 1
+            print(f"{self.name} только что уменьшил количество этажей на 1!")
 
     robot.remove_floor = remove_floor
