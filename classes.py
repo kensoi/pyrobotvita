@@ -6,9 +6,17 @@ from abc import ABC, abstractmethod
 
 
 class Robot:
-    def __init__(self, code: str, name:str)->None:
+    code: str
+    name: str
+    _instances = {}
+
+    def __new__(self, code: str, name:str)->None:
         self.code = code
         self.name = name
+        if self not in self.instances:
+            instance = super().__new__(self)
+            self._instances[self] = instance
+        return self._instances[self]
 
 
 class Building(ABC):
